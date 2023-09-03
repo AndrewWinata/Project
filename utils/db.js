@@ -5,7 +5,7 @@ const dbPool = mysql.createPool({
     user:"root",
     password: "ukrida",
     database: "batch_9",
-    port: 3307 //tidak perlu di tuliskan bila menggunakan default port
+    port: 3307 //default 3306 tidak perlu di ubah bila menggunakan default port
 })
 
 export default dbPool;

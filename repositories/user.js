@@ -6,6 +6,18 @@ export const getData = (limit) => {
 
     return dbPool.query(sql, values)
 }
+export const getDataById = (id) => {
+    const sql = "SELECT user_id, name_, email_, pwd_, created_at FROM users WHERE user_id = ?";
+    const values = [id];
+
+    return dbPool.query(sql, values)
+}
+export const getDataByEmail = (email_) => {
+    const sql = "SELECT * FROM users WHERE email_ = ?";
+    const values = [email_];
+
+    return dbPool.query(sql, values)
+}
 
 export const createData = (name_, email_, pwd_) => {
     let created_at = new Date();
@@ -14,13 +26,6 @@ export const createData = (name_, email_, pwd_) => {
     const result = dbPool.query(sql, values);
 
     return result;
-}
-
-export const getDataById = (id) => {
-    const sql = "SELECT user_id, name_, email_, pwd_, created_at FROM users WHERE user_id = ?";
-    const values = [id];
-
-    return dbPool.query(sql, values)
 }
 
 export const updateData = (nm, eml, pswd, id) => {
